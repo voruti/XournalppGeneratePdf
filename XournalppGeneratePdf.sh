@@ -1,5 +1,10 @@
 #!/bin/bash
 
+DARK_GRAY='\033[1;30m'
+LIGHT_BLUE='\033[1;34m'
+ORANGE='\033[0;33m'
+RESET='\033[0m'
+
 # echo "Script called as: $0"
 # echo "Script called with: $*"
 
@@ -30,7 +35,7 @@ else
         # read -p "execute?"
         rm -v "$generatedPath" || exit 1
     else
-        echo "generated PDF file $generatedPath does not exist"
+        echo -e "${DARK_GRAY}[DEBUG] generated PDF file $generatedPath does not exist${RESET}"
     fi
 
     # echo "generating PDF export for $1"
@@ -39,9 +44,9 @@ else
     wait $!
 
     if [[ $? -eq 0 && -f "$generatedPath" ]]; then
-        echo "successfully generated PDF export as $generatedPath"
+        echo -e "${LIGHT_BLUE}[INFO] successfully generated PDF export as $generatedPath${RESET}"
     else
-        echo "failed to generate PDF export for $1"
+        echo -e "${ORANGE}[WARN] failed to generate PDF export for $1${RESET}"
         exit 1
     fi
 fi
