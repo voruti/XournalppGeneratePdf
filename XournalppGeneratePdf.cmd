@@ -37,7 +37,7 @@ set "unix_path=/%drive_letter%/%switched_slashes:~3%"
 
 ENDLOCAL
 
-timeout /T 3 /NOBREAK
+timeout /T 5 /NOBREAK
 
 
 :LoCase
