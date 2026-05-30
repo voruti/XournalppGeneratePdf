@@ -6,11 +6,11 @@ ORANGE='\033[0;33m'
 RESET='\033[0m'
 
 if [ $# -ne 1 ]; then
-  echo "Error: Exactly one parameter is required."
+  echo "Error: Exactly one parameter is required." >&2
   exit 1
 fi
 if ! [[ -d "$1" || (-f "$1" && "$1" == *.xopp) ]]; then
-  echo "Error: Parameter must be a directory or a Xournalpp file."
+  echo "Error: Parameter must be a directory or a Xournalpp file." >&2
   exit 1
 fi
 
@@ -43,7 +43,7 @@ else
   if [[ $? -eq 0 && -f "$generatedPath" ]]; then
     echo -e "${LIGHT_BLUE}[INFO] successfully generated PDF export as $generatedPath${RESET}"
   else
-    echo -e "${ORANGE}[WARN] failed to generate PDF export for $1${RESET}"
+    echo -e "${ORANGE}[WARN] failed to generate PDF export for $1.${RESET}" >&2
     exit 1
   fi
 fi
