@@ -5,9 +5,6 @@ LIGHT_BLUE='\033[1;34m'
 ORANGE='\033[0;33m'
 RESET='\033[0m'
 
-# echo "Script called as: $0"
-# echo "Script called with: $*"
-
 if [ $# -ne 1 ]; then
   echo "Error: Exactly one parameter is required."
   exit 1
@@ -20,8 +17,8 @@ fi
 if [ -d "$1" ]; then
   # echo "$1 is directory"
 
+  # for file in "$1"/.* "$1"/*; do # include dot files
   for file in "$1"/*; do
-    # for file in "$1"/.* "$1"/*; do # include dot files
     if [[ -d "$file" || (-f "$file" && "$file" == *.xopp) ]]; then
       "$(realpath "$0")" "$file"
     fi
