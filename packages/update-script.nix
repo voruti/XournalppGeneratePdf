@@ -9,6 +9,6 @@ pkgs.writeShellApplication {
   name = pname;
 
   text = ''
-    sed -e '1i#!/bin/bash' -e '1,6d' ${lib.meta.getExe perSystem.self.default} > XournalppGeneratePdf.sh
+    sed -e '1i#!/bin/bash' -e '1d' -e '6d' ${lib.meta.getExe perSystem.self.default} > XournalppGeneratePdf.sh
   '';
 }

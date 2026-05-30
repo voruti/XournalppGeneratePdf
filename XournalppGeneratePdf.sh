@@ -1,4 +1,8 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
 
 DARK_GRAY='\033[1;30m'
 LIGHT_BLUE='\033[1;34m'
