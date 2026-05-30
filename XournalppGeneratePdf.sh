@@ -23,7 +23,7 @@ if [ -d "$1" ]; then
   for file in "$1"/*; do
     # for file in "$1"/.* "$1"/*; do # include dot files
     if [[ -d "$file" || (-f "$file" && "$file" == *.xopp) ]]; then
-      "$(realpath $0)" "$file"
+      "$(realpath "$0")" "$file"
     fi
   done
 else
